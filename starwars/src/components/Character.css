@@ -14,3 +14,10 @@
   border-radius: 20px;
   border: 1px solid gray;
 }
+
+.details {
+  background-color: lightgray;
+  padding: 20px 40px;
+  border-radius: 5px;
+}
+

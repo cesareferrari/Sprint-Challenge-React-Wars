@@ -1,10 +1,12 @@
 import React from 'react';
+import './Detail.css';
 
 
 const Detail = (props) => {
   return (
     <div className="detail">
-      {props.name}: {props.value}
+      <span>{props.name}:</span>
+      <span>{props.value}</span>
     </div>
   )
 }
