@@ -1,11 +1,15 @@
 import React from 'react';
 import './Character.css';
+import Film from './Film';
 
 class Character extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: props.character.name,
+      filmUrls: props.character.films,
+      films: [],
+      isLoading: false,
       details: {
         height: props.character.height,
         mass: props.character.mass,
@@ -16,6 +20,23 @@ class Character extends React.Component {
       }
     }
   }
+
+  componentDidMount() {
+    this.setState({ isLoading: true});
+
+    this.state.filmUrls.forEach(url => {
+      this.getFilm(url);
+    });
+  }
+
+  getFilm = url => {
+    fetch(url)
+      .then(res => res.json())
+      .then(data => this.setState({ films: [...this.state.films, data], isLoading: false }))
+      .catch(error => {throw new Error(error)});
+  }
+
+
 
   render() {
     return(
@@ -41,7 +62,11 @@ class Character extends React.Component {
           <div className="detail">
             Birth year: {this.state.details.birth_year}
           </div>
+        </div>
 
+        <div className="film">
+          <h3>Films</h3>
+          { this.state.isLoading ? "Loading..." : this.state.films.map(film => <Film key={film.url} filmTitle={film.title} />) }
         </div>
       </div>
     )
