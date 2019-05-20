@@ -1,6 +1,9 @@
 import React from 'react';
 import './Character.css';
+import Detail from './Detail';
 import Film from './Film';
+
+
 
 class Character extends React.Component {
   constructor(props) {
@@ -44,24 +47,12 @@ class Character extends React.Component {
         <h2>{this.state.name}</h2>
 
         <div className="details">
-          <div className="detail">
-            Height: {this.state.details.height}
-          </div>
-          <div className="detail">
-            Mass: {this.state.details.mass}
-          </div>
-          <div className="detail">
-            Hair color: {this.state.details.hair_color}
-          </div>
-          <div className="detail">
-            Skin color: {this.state.details.skin_color}
-          </div>
-          <div className="detail">
-            Eye color: {this.state.details.eye_color}
-          </div>
-          <div className="detail">
-            Birth year: {this.state.details.birth_year}
-          </div>
+          <Detail name="Height" value={this.state.details.height} />
+          <Detail name="Mass" value={this.state.details.mass} />
+          <Detail name="Hair color" value={this.state.details.hair_color} />
+          <Detail name="Skin color" value={this.state.details.skin_color} />
+          <Detail name="Eye color" value={this.state.details.eye_color} />
+          <Detail name="Birth year" value={this.state.details.birth_year} />
         </div>
 
         <div className="film">
