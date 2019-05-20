@@ -55,9 +55,11 @@ class Character extends React.Component {
           <Detail name="Birth year" value={this.state.details.birth_year} />
         </div>
 
-        <div className="film">
+        <div className="films">
           <h3>Films</h3>
+          <div className="film-list">
           { this.state.isLoading ? "Loading..." : this.state.films.map(film => <Film key={film.url} filmTitle={film.title} />) }
+          </div>
         </div>
       </div>
     )

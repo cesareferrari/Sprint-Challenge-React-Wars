@@ -1,4 +1,5 @@
 import React from 'react';
+import './Film.css';
 
 const Film = props => {
   return(
