@@ -26,11 +26,58 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+    React is a Javascript library that is used to create "reactive" user interfaces.
+    By "reactive" UI I mean that React enables us to create interfaces that respond
+    quickly and efficiently to the user actions.
+
+    React lets you build interfaces with modular components that can be combined
+    together to build a rich user experience.  
+    These components can be stateful or stateless. Data is maintained by React into
+    the state of the application. Every time data is modified by an user action, the
+    interface is automatically re-rendered in an efficient way.
+
+
 - [ ] What does it mean to _think_ in react?
+
+    Thinking in React means:
+
+    1. Start with a mock view of what we want to achieve and break up the interface into
+      a component hierarchy
+    2. From that component hierarchy, build a static view in React, leaving out the
+      interactivity for now
+    3. Figure out the minimal state the application need to function.
+      State is data that  
+        - can change over time
+        - cannot be computed from other parts of our application
+    4. Identify in which component the state should live. State should flow down
+      from a higher component to its children.
+
 
 - [ ] Describe state.
 
+    State is the data that flows through our application. During the life of our
+    application, this data can be changed by the application or by the user.  
+    State is kept in a component in a Javascript object that is referenced by `this.state`
+    It's only kept alive by the component that owns it, so if the component is
+    removed, the state that goes with that component is also removed.
+    The way to change state is through the `setState` method.
+    When the `setState` method is called, React re-renders the application so the
+    changes are reflected immediately.
+
+
 - [ ] Describe props.
+
+    Props are the mechanism through which React passes state around from parent to
+    child component.
+    Props are used to display data from the state by passing them to components in
+    this way, for example:
+
+      `<Message text={this.state.message} />`
+    
+    In this case, `text` is the prop that is passed down to the `Message`
+    component and it's set to the `message` property of the parent component.
+
+
 
 ## Project Set Up
 
